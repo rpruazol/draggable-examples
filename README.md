@@ -1,4 +1,4 @@
 # draggable-examples
 
 
-Repository with .  Examples include Javascript and Typescript
+Repository with basic examples of the [Draggable Javascript library](https://github.com/Shopify/draggable).  Examples include Javascript and Typescript
