@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useRef, useEffect} from 'react';
 import {Sortable} from '@shopify/draggable';
+
 function App() {
 
   const $container = useRef();
@@ -10,9 +11,16 @@ function App() {
     const sort = new Sortable($container.current, {
       draggable: '.boxes'
     })
-    sort.on('sortable:start', () => console.log('starting sort'));
+    console.log(Sortable.startIndex)
+    sort.on('sortable:start', () => console.log('starting sort: ',document.getElementsByClassName('boxes'))
+    );
+    sort.on('sortable:sorted', (e) => console.log('sorted: ',  Array.from(sort.getDraggableElementsForContainer(e.newContainer)).map(value => value.textContent)));
+    
+    return () => {
+      sort.destroy()
+    }
 
-  })
+  }, [])  
 
 
   return (
